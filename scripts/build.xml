@@ -1,46 +1,34 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
 
 <!--
-
   Ant build script for log4jdbc
-
   Tested with Apache Ant version 1.6.5 & 1.7
-
   built with jdk 1.4.2_13 (for use with jdbc3)
   and/or jdk 1.6.0 (for use with jdbc4)
-
   Copyright 2007-2015 Arthur Blake
-
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
-
      http://www.apache.org/licenses/LICENSE-2.0
-
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-
 -->
 
 <project name="log4jdbc" default="all" basedir="..">
 
   <!-- the jdbc.level flag should be set externally to either 3 or 4
-
        this is the jdbc version and should be 3 if using a jdk 1.4 or 1.5
-
        the jdbc.level flag should be set to 4 if using a jdk 1.6 or greater.
-
        defaults to jdbc3 build if not set externally
-
        therefore to build both, ant should be invoked twice, setting the jdbc.level externally
        to 3 and then 4. and using the jdk 1.4 and then 1.6.
   -->
 
-  <property name="jdbc.level" value="3" />
-  <property name="jvm.ver" value="1.4" />
+  <property name="jdbc.level" value="4" />
+  <property name="jvm.ver" value="1.6" />
   <property name="jdbc.prefix" value="jdbc${jdbc.level}" />
 
   <property name="src" value="src-${jdbc.prefix}" />
@@ -56,12 +44,9 @@
   <!--
        The ydoc.home.3 and ydoc.home.4 properties are only used for the ydoc.3
        and ydoc.4 targets for producing javadoc with UML
-
        it requires the commercial ydoc utility
        (see http://www.yworks.com/en/products_ydoc.htm)
-
        use the javadoc target to generate regular javadoc
-
        ydoc.home.3 is for jdk1.4 / JDBC 3
        ydoc.home.4 is for jdk1.6 / JDBC 4
   -->

@@ -2342,16 +2342,8 @@ public class ResultSetSpy implements ResultSet, Spy
   public int findColumn(String columnName) throws SQLException
   {
     String methodCall = "findColumn(" + columnName + ")";
-    try
-    {
-      return reportReturn(methodCall, realResultSet.findColumn(columnName));
-    }
-    catch (SQLException s)
-    {
-      reportException(methodCall, s);
-      throw s;
-    }
-  }
+    return reportReturn(methodCall, realResultSet.findColumn(columnName));
+   }
 
   public boolean wasNull() throws SQLException
   {
